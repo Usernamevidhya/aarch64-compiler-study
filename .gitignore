@@ -1,0 +1,21 @@
+# Build output: binaries, raw assembly dumps, vectorization reports
+build/
+build-*/
+*.s
+*.elf
+*.bin
+*.o
+*.obj
+*.out
+*.exe
+*.a
+*.so
+# Python
+__pycache__/
+*.pyc
+.venv/
+# Editor / OS
+.DS_Store
+*.swp
+.vscode/
+.idea/
