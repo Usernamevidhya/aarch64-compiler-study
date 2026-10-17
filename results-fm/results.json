@@ -1,0 +1,2087 @@
+{
+  "meta": {
+    "gcc_version": "aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "clang_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "runner": "/usr/bin/qemu-aarch64 -cpu max",
+    "host": "Linux x86_64",
+    "when": "2026-10-17 13:45:19 UTC",
+    "problems": []
+  },
+  "configs": [
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "matrix_mul",
+      "vec": {
+        "available": true,
+        "vectorized_events": 0,
+        "vectorized_sites": 0,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 0,
+        "widths": {},
+        "missed_reasons": {}
+      },
+      "asm": {
+        "total_insns": 660,
+        "neon_insns": 1,
+        "scalar_fp_insns": 27,
+        "kernel_total_insns": 163,
+        "kernel_neon_insns": 0,
+        "kernel_scalar_fp_insns": 4,
+        "top_neon_ops": [],
+        "kernel_functions": {
+          "_Z17kern_matmul_naivePKfS0_Pfm": {
+            "total": 69,
+            "neon": 0,
+            "scalar_fp": 2
+          },
+          "_Z21kern_matmul_reorderedPKfS0_Pfm": {
+            "total": 94,
+            "neon": 0,
+            "scalar_fp": 2
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 1.75
+      }
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "fft",
+      "vec": {
+        "available": true,
+        "vectorized_events": 0,
+        "vectorized_sites": 0,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 0,
+        "widths": {},
+        "missed_reasons": {}
+      },
+      "asm": {
+        "total_insns": 1051,
+        "neon_insns": 1,
+        "scalar_fp_insns": 74,
+        "kernel_total_insns": 215,
+        "kernel_neon_insns": 0,
+        "kernel_scalar_fp_insns": 10,
+        "top_neon_ops": [],
+        "kernel_functions": {
+          "_Z15kern_fft_radix2PfS_PKfS1_PKjm": {
+            "total": 215,
+            "neon": 0,
+            "scalar_fp": 10
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.48
+      }
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "vec": {
+        "available": true,
+        "vectorized_events": 0,
+        "vectorized_sites": 0,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 0,
+        "widths": {},
+        "missed_reasons": {}
+      },
+      "asm": {
+        "total_insns": 1898,
+        "neon_insns": 1,
+        "scalar_fp_insns": 97,
+        "kernel_total_insns": 942,
+        "kernel_neon_insns": 0,
+        "kernel_scalar_fp_insns": 55,
+        "top_neon_ops": [],
+        "kernel_functions": {
+          "_Z14kern_dot_basicIfET_PKS0_S2_m": {
+            "total": 31,
+            "neon": 0,
+            "scalar_fp": 2
+          },
+          "_Z14kern_dot_basicIiET_PKS0_S2_m": {
+            "total": 31,
+            "neon": 0,
+            "scalar_fp": 0
+          },
+          "_Z16kern_dot_unroll4IfET_PKS0_S2_m": {
+            "total": 111,
+            "neon": 0,
+            "scalar_fp": 13
+          },
+          "_Z16kern_dot_unroll4IiET_PKS0_S2_m": {
+            "total": 111,
+            "neon": 0,
+            "scalar_fp": 0
+          },
+          "_Z17kern_dot_restrictIfET_PKS0_S2_m": {
+            "total": 31,
+            "neon": 0,
+            "scalar_fp": 2
+          },
+          "_Z17kern_dot_restrictIiET_PKS0_S2_m": {
+            "total": 31,
+            "neon": 0,
+            "scalar_fp": 0
+          },
+          "_Z25kern_dot_restrict_unroll4IfET_PKS0_S2_m": {
+            "total": 111,
+            "neon": 0,
+            "scalar_fp": 13
+          },
+          "_Z25kern_dot_restrict_unroll4IiET_PKS0_S2_m": {
+            "total": 111,
+            "neon": 0,
+            "scalar_fp": 0
+          },
+          "_Z25kern_dot_restrict_unroll8IfET_PKS0_S2_m": {
+            "total": 187,
+            "neon": 0,
+            "scalar_fp": 25
+          },
+          "_Z25kern_dot_restrict_unroll8IiET_PKS0_S2_m": {
+            "total": 187,
+            "neon": 0,
+            "scalar_fp": 0
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 1.36
+      }
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "matrix_mul",
+      "vec": {
+        "available": true,
+        "vectorized_events": 0,
+        "vectorized_sites": 0,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 13,
+        "widths": {},
+        "missed_reasons": {
+          "multiple nested loops": 3,
+          "not suitable for strided load _10 = *_9;": 1,
+          "complicated access pattern": 1,
+          "number of iterations cannot be computed": 1,
+          "relevant stmt not supported": 1,
+          "control flow in loop": 1,
+          "unsupported use in stmt": 2
+        }
+      },
+      "asm": {
+        "total_insns": 416,
+        "neon_insns": 3,
+        "scalar_fp_insns": 25,
+        "kernel_total_insns": 83,
+        "kernel_neon_insns": 1,
+        "kernel_scalar_fp_insns": 2,
+        "top_neon_ops": [
+          [
+            "movi",
+            1
+          ]
+        ],
+        "kernel_functions": {
+          "_Z17kern_matmul_naivePKfS0_Pfm": {
+            "total": 35,
+            "neon": 1,
+            "scalar_fp": 1
+          },
+          "_Z21kern_matmul_reorderedPKfS0_Pfm": {
+            "total": 48,
+            "neon": 0,
+            "scalar_fp": 1
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.9
+      }
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "fft",
+      "vec": {
+        "available": true,
+        "vectorized_events": 0,
+        "vectorized_sites": 0,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 14,
+        "widths": {},
+        "missed_reasons": {
+          "relevant stmt not supported": 5,
+          "loop nest containing two or more consecutive inner loops cannot be vectorized": 1,
+          "number of iterations cannot be computed": 1,
+          "multiple nested loops": 1,
+          "control flow in loop": 2,
+          "unsupported use in stmt": 2
+        }
+      },
+      "asm": {
+        "total_insns": 555,
+        "neon_insns": 4,
+        "scalar_fp_insns": 69,
+        "kernel_total_insns": 68,
+        "kernel_neon_insns": 0,
+        "kernel_scalar_fp_insns": 8,
+        "top_neon_ops": [],
+        "kernel_functions": {
+          "_Z15kern_fft_radix2PfS_PKfS1_PKjm": {
+            "total": 68,
+            "neon": 0,
+            "scalar_fp": 8
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.32
+      }
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "vec": {
+        "available": true,
+        "vectorized_events": 6,
+        "vectorized_sites": 3,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 8,
+        "widths": {
+          "128-bit": 6
+        },
+        "missed_reasons": {
+          "relevant stmt not supported": 2,
+          "unsupported use in stmt": 1
+        }
+      },
+      "asm": {
+        "total_insns": 850,
+        "neon_insns": 69,
+        "scalar_fp_insns": 90,
+        "kernel_total_insns": 300,
+        "kernel_neon_insns": 66,
+        "kernel_scalar_fp_insns": 29,
+        "top_neon_ops": [
+          [
+            "dup",
+            21
+          ],
+          [
+            "ldr.q",
+            16
+          ],
+          [
+            "movi",
+            11
+          ],
+          [
+            "add",
+            5
+          ],
+          [
+            "fmla",
+            4
+          ]
+        ],
+        "kernel_functions": {
+          "_Z14kern_dot_basicIfET_PKS0_S2_m": {
+            "total": 10,
+            "neon": 1,
+            "scalar_fp": 1
+          },
+          "_Z14kern_dot_basicIiET_PKS0_S2_m": {
+            "total": 13,
+            "neon": 0,
+            "scalar_fp": 0
+          },
+          "_Z16kern_dot_unroll4IfET_PKS0_S2_m": {
+            "total": 36,
+            "neon": 8,
+            "scalar_fp": 5
+          },
+          "_Z16kern_dot_unroll4IiET_PKS0_S2_m": {
+            "total": 39,
+            "neon": 8,
+            "scalar_fp": 2
+          },
+          "_Z17kern_dot_restrictIfET_PKS0_S2_m": {
+            "total": 10,
+            "neon": 1,
+            "scalar_fp": 1
+          },
+          "_Z17kern_dot_restrictIiET_PKS0_S2_m": {
+            "total": 13,
+            "neon": 0,
+            "scalar_fp": 0
+          },
+          "_Z25kern_dot_restrict_unroll4IfET_PKS0_S2_m": {
+            "total": 36,
+            "neon": 8,
+            "scalar_fp": 5
+          },
+          "_Z25kern_dot_restrict_unroll4IiET_PKS0_S2_m": {
+            "total": 39,
+            "neon": 8,
+            "scalar_fp": 2
+          },
+          "_Z25kern_dot_restrict_unroll8IfET_PKS0_S2_m": {
+            "total": 49,
+            "neon": 15,
+            "scalar_fp": 9
+          },
+          "_Z25kern_dot_restrict_unroll8IiET_PKS0_S2_m": {
+            "total": 55,
+            "neon": 17,
+            "scalar_fp": 4
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.66
+      }
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "matrix_mul",
+      "vec": {
+        "available": true,
+        "vectorized_events": 6,
+        "vectorized_sites": 4,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 10,
+        "widths": {
+          "128-bit": 5,
+          "64-bit": 1
+        },
+        "missed_reasons": {
+          "multiple nested loops": 2,
+          "not suitable for strided load _10 = *_9;": 1,
+          "loop nest containing two or more consecutive inner loops cannot be vectorized": 1,
+          "complicated access pattern": 2,
+          "number of iterations cannot be computed": 1,
+          "control flow in loop": 1,
+          "unsupported use in stmt": 2
+        }
+      },
+      "asm": {
+        "total_insns": 683,
+        "neon_insns": 41,
+        "scalar_fp_insns": 37,
+        "kernel_total_insns": 266,
+        "kernel_neon_insns": 24,
+        "kernel_scalar_fp_insns": 8,
+        "top_neon_ops": [
+          [
+            "ldr.q",
+            6
+          ],
+          [
+            "fmla",
+            6
+          ],
+          [
+            "dup",
+            3
+          ],
+          [
+            "movi",
+            2
+          ],
+          [
+            "ins",
+            2
+          ]
+        ],
+        "kernel_functions": {
+          "_Z17kern_matmul_naivePKfS0_Pfm": {
+            "total": 91,
+            "neon": 9,
+            "scalar_fp": 3
+          },
+          "_Z21kern_matmul_reorderedPKfS0_Pfm": {
+            "total": 175,
+            "neon": 15,
+            "scalar_fp": 5
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.67
+      }
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "fft",
+      "vec": {
+        "available": true,
+        "vectorized_events": 4,
+        "vectorized_sites": 3,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 11,
+        "widths": {
+          "128-bit": 3,
+          "64-bit": 1
+        },
+        "missed_reasons": {
+          "loop nest containing two or more consecutive inner loops cannot be vectorized": 1,
+          "relevant stmt not supported": 3,
+          "number of iterations cannot be computed": 2,
+          "multiple nested loops": 1,
+          "control flow in loop": 1,
+          "unsupported use in stmt": 2
+        }
+      },
+      "asm": {
+        "total_insns": 854,
+        "neon_insns": 79,
+        "scalar_fp_insns": 99,
+        "kernel_total_insns": 226,
+        "kernel_neon_insns": 35,
+        "kernel_scalar_fp_insns": 16,
+        "top_neon_ops": [
+          [
+            "ins",
+            8
+          ],
+          [
+            "ldr.q",
+            6
+          ],
+          [
+            "fmla",
+            6
+          ],
+          [
+            "fmls",
+            4
+          ],
+          [
+            "str.q",
+            4
+          ]
+        ],
+        "kernel_functions": {
+          "_Z15kern_fft_radix2PfS_PKfS1_PKjm": {
+            "total": 226,
+            "neon": 35,
+            "scalar_fp": 16
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.3
+      }
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "vec": {
+        "available": true,
+        "vectorized_events": 18,
+        "vectorized_sites": 9,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 2,
+        "widths": {
+          "128-bit": 18
+        },
+        "missed_reasons": {
+          "unsupported use in stmt": 1
+        }
+      },
+      "asm": {
+        "total_insns": 1371,
+        "neon_insns": 159,
+        "scalar_fp_insns": 134,
+        "kernel_total_insns": 652,
+        "kernel_neon_insns": 123,
+        "kernel_scalar_fp_insns": 47,
+        "top_neon_ops": [
+          [
+            "ldr.q",
+            36
+          ],
+          [
+            "movi",
+            23
+          ],
+          [
+            "dup",
+            21
+          ],
+          [
+            "faddp",
+            10
+          ],
+          [
+            "fmla",
+            9
+          ]
+        ],
+        "kernel_functions": {
+          "_Z14kern_dot_basicIfET_PKS0_S2_m": {
+            "total": 43,
+            "neon": 8,
+            "scalar_fp": 3
+          },
+          "_Z14kern_dot_basicIiET_PKS0_S2_m": {
+            "total": 44,
+            "neon": 5,
+            "scalar_fp": 1
+          },
+          "_Z16kern_dot_unroll4IfET_PKS0_S2_m": {
+            "total": 73,
+            "neon": 14,
+            "scalar_fp": 8
+          },
+          "_Z16kern_dot_unroll4IiET_PKS0_S2_m": {
+            "total": 78,
+            "neon": 13,
+            "scalar_fp": 3
+          },
+          "_Z17kern_dot_restrictIfET_PKS0_S2_m": {
+            "total": 43,
+            "neon": 8,
+            "scalar_fp": 3
+          },
+          "_Z17kern_dot_restrictIiET_PKS0_S2_m": {
+            "total": 44,
+            "neon": 5,
+            "scalar_fp": 1
+          },
+          "_Z25kern_dot_restrict_unroll4IfET_PKS0_S2_m": {
+            "total": 73,
+            "neon": 14,
+            "scalar_fp": 8
+          },
+          "_Z25kern_dot_restrict_unroll4IiET_PKS0_S2_m": {
+            "total": 78,
+            "neon": 13,
+            "scalar_fp": 3
+          },
+          "_Z25kern_dot_restrict_unroll8IfET_PKS0_S2_m": {
+            "total": 85,
+            "neon": 21,
+            "scalar_fp": 12
+          },
+          "_Z25kern_dot_restrict_unroll8IiET_PKS0_S2_m": {
+            "total": 91,
+            "neon": 22,
+            "scalar_fp": 5
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.61
+      }
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "matrix_mul",
+      "vec": {
+        "available": true,
+        "vectorized_events": 0,
+        "vectorized_sites": 0,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 0,
+        "widths": {},
+        "missed_reasons": {}
+      },
+      "asm": {
+        "total_insns": 645,
+        "neon_insns": 0,
+        "scalar_fp_insns": 25,
+        "kernel_total_insns": 161,
+        "kernel_neon_insns": 0,
+        "kernel_scalar_fp_insns": 4,
+        "top_neon_ops": [],
+        "kernel_functions": {
+          "_Z17kern_matmul_naivePKfS0_Pfm": {
+            "total": 71,
+            "neon": 0,
+            "scalar_fp": 2
+          },
+          "_Z21kern_matmul_reorderedPKfS0_Pfm": {
+            "total": 90,
+            "neon": 0,
+            "scalar_fp": 2
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 1.7
+      }
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "fft",
+      "vec": {
+        "available": true,
+        "vectorized_events": 0,
+        "vectorized_sites": 0,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 0,
+        "widths": {},
+        "missed_reasons": {}
+      },
+      "asm": {
+        "total_insns": 981,
+        "neon_insns": 0,
+        "scalar_fp_insns": 69,
+        "kernel_total_insns": 178,
+        "kernel_neon_insns": 0,
+        "kernel_scalar_fp_insns": 10,
+        "top_neon_ops": [],
+        "kernel_functions": {
+          "_Z15kern_fft_radix2PfS_PKfS1_PKjm": {
+            "total": 178,
+            "neon": 0,
+            "scalar_fp": 10
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.47
+      }
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "vec": {
+        "available": true,
+        "vectorized_events": 0,
+        "vectorized_sites": 0,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 0,
+        "widths": {},
+        "missed_reasons": {}
+      },
+      "asm": {
+        "total_insns": 1723,
+        "neon_insns": 0,
+        "scalar_fp_insns": 95,
+        "kernel_total_insns": 840,
+        "kernel_neon_insns": 0,
+        "kernel_scalar_fp_insns": 55,
+        "top_neon_ops": [],
+        "kernel_functions": {
+          "_Z14kern_dot_basicIfET_PKS0_S2_m": {
+            "total": 31,
+            "neon": 0,
+            "scalar_fp": 2
+          },
+          "_Z14kern_dot_basicIiET_PKS0_S2_m": {
+            "total": 30,
+            "neon": 0,
+            "scalar_fp": 0
+          },
+          "_Z16kern_dot_unroll4IfET_PKS0_S2_m": {
+            "total": 100,
+            "neon": 0,
+            "scalar_fp": 13
+          },
+          "_Z16kern_dot_unroll4IiET_PKS0_S2_m": {
+            "total": 99,
+            "neon": 0,
+            "scalar_fp": 0
+          },
+          "_Z17kern_dot_restrictIfET_PKS0_S2_m": {
+            "total": 31,
+            "neon": 0,
+            "scalar_fp": 2
+          },
+          "_Z17kern_dot_restrictIiET_PKS0_S2_m": {
+            "total": 30,
+            "neon": 0,
+            "scalar_fp": 0
+          },
+          "_Z25kern_dot_restrict_unroll4IfET_PKS0_S2_m": {
+            "total": 100,
+            "neon": 0,
+            "scalar_fp": 13
+          },
+          "_Z25kern_dot_restrict_unroll4IiET_PKS0_S2_m": {
+            "total": 99,
+            "neon": 0,
+            "scalar_fp": 0
+          },
+          "_Z25kern_dot_restrict_unroll8IfET_PKS0_S2_m": {
+            "total": 161,
+            "neon": 0,
+            "scalar_fp": 25
+          },
+          "_Z25kern_dot_restrict_unroll8IiET_PKS0_S2_m": {
+            "total": 159,
+            "neon": 0,
+            "scalar_fp": 0
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 1.24
+      }
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "matrix_mul",
+      "vec": {
+        "available": true,
+        "vectorized_events": 2,
+        "vectorized_sites": 2,
+        "slp_events": 0,
+        "interleaved_events": 2,
+        "missed_sites": 2,
+        "widths": {
+          "VF4/IC2": 2
+        },
+        "missed_reasons": {
+          "value that could not be identified as reduction is used outside the loop": 2
+        }
+      },
+      "asm": {
+        "total_insns": 450,
+        "neon_insns": 16,
+        "scalar_fp_insns": 25,
+        "kernel_total_insns": 133,
+        "kernel_neon_insns": 6,
+        "kernel_scalar_fp_insns": 5,
+        "top_neon_ops": [
+          [
+            "ldp.q",
+            2
+          ],
+          [
+            "fmla",
+            2
+          ],
+          [
+            "dup",
+            1
+          ],
+          [
+            "stp.q",
+            1
+          ]
+        ],
+        "kernel_functions": {
+          "_Z17kern_matmul_naivePKfS0_Pfm": {
+            "total": 55,
+            "neon": 0,
+            "scalar_fp": 4
+          },
+          "_Z21kern_matmul_reorderedPKfS0_Pfm": {
+            "total": 78,
+            "neon": 6,
+            "scalar_fp": 1
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.72
+      }
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "fft",
+      "vec": {
+        "available": true,
+        "vectorized_events": 5,
+        "vectorized_sites": 5,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 5,
+        "widths": {
+          "VF4/IC1": 3,
+          "VF4/IC2": 2
+        },
+        "missed_reasons": {
+          "value that could not be identified as reduction is used outside the loop": 2,
+          "could not determine number of loop iterations": 1,
+          "instruction cannot be vectorized": 1,
+          "unspecified": 1
+        }
+      },
+      "asm": {
+        "total_insns": 938,
+        "neon_insns": 223,
+        "scalar_fp_insns": 60,
+        "kernel_total_insns": 164,
+        "kernel_neon_insns": 23,
+        "kernel_scalar_fp_insns": 8,
+        "top_neon_ops": [
+          [
+            "ld1",
+            6
+          ],
+          [
+            "ldr.q",
+            4
+          ],
+          [
+            "str.q",
+            4
+          ],
+          [
+            "fmul",
+            2
+          ],
+          [
+            "fmla",
+            2
+          ]
+        ],
+        "kernel_functions": {
+          "_Z15kern_fft_radix2PfS_PKfS1_PKjm": {
+            "total": 164,
+            "neon": 23,
+            "scalar_fp": 8
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.26
+      }
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "vec": {
+        "available": true,
+        "vectorized_events": 17,
+        "vectorized_sites": 9,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 2,
+        "widths": {
+          "VF2/IC2": 1,
+          "VF4/IC2": 16
+        },
+        "missed_reasons": {
+          "value that could not be identified as reduction is used outside the loop": 1,
+          "instruction cannot be vectorized": 1
+        }
+      },
+      "asm": {
+        "total_insns": 1518,
+        "neon_insns": 499,
+        "scalar_fp_insns": 89,
+        "kernel_total_insns": 964,
+        "kernel_neon_insns": 449,
+        "kernel_scalar_fp_insns": 33,
+        "top_neon_ops": [
+          [
+            "movi",
+            81
+          ],
+          [
+            "mov",
+            68
+          ],
+          [
+            "ldp.q",
+            47
+          ],
+          [
+            "faddp",
+            42
+          ],
+          [
+            "fadd",
+            37
+          ]
+        ],
+        "kernel_functions": {
+          "_Z14kern_dot_basicIfET_PKS0_S2_m": {
+            "total": 37,
+            "neon": 9,
+            "scalar_fp": 1
+          },
+          "_Z14kern_dot_basicIiET_PKS0_S2_m": {
+            "total": 39,
+            "neon": 8,
+            "scalar_fp": 1
+          },
+          "_Z16kern_dot_unroll4IfET_PKS0_S2_m": {
+            "total": 120,
+            "neon": 53,
+            "scalar_fp": 6
+          },
+          "_Z16kern_dot_unroll4IiET_PKS0_S2_m": {
+            "total": 113,
+            "neon": 48,
+            "scalar_fp": 2
+          },
+          "_Z17kern_dot_restrictIfET_PKS0_S2_m": {
+            "total": 37,
+            "neon": 9,
+            "scalar_fp": 1
+          },
+          "_Z17kern_dot_restrictIiET_PKS0_S2_m": {
+            "total": 39,
+            "neon": 8,
+            "scalar_fp": 1
+          },
+          "_Z25kern_dot_restrict_unroll4IfET_PKS0_S2_m": {
+            "total": 120,
+            "neon": 53,
+            "scalar_fp": 6
+          },
+          "_Z25kern_dot_restrict_unroll4IiET_PKS0_S2_m": {
+            "total": 113,
+            "neon": 48,
+            "scalar_fp": 2
+          },
+          "_Z25kern_dot_restrict_unroll8IfET_PKS0_S2_m": {
+            "total": 271,
+            "neon": 190,
+            "scalar_fp": 10
+          },
+          "_Z25kern_dot_restrict_unroll8IiET_PKS0_S2_m": {
+            "total": 75,
+            "neon": 23,
+            "scalar_fp": 3
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.56
+      }
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "matrix_mul",
+      "vec": {
+        "available": true,
+        "vectorized_events": 2,
+        "vectorized_sites": 2,
+        "slp_events": 0,
+        "interleaved_events": 2,
+        "missed_sites": 3,
+        "widths": {
+          "VF4/IC2": 2
+        },
+        "missed_reasons": {
+          "value that could not be identified as reduction is used outside the loop": 2,
+          "instruction cannot be vectorized": 1
+        }
+      },
+      "asm": {
+        "total_insns": 477,
+        "neon_insns": 15,
+        "scalar_fp_insns": 29,
+        "kernel_total_insns": 132,
+        "kernel_neon_insns": 5,
+        "kernel_scalar_fp_insns": 5,
+        "top_neon_ops": [
+          [
+            "ldp.q",
+            2
+          ],
+          [
+            "fmla",
+            2
+          ],
+          [
+            "stp.q",
+            1
+          ]
+        ],
+        "kernel_functions": {
+          "_Z17kern_matmul_naivePKfS0_Pfm": {
+            "total": 55,
+            "neon": 0,
+            "scalar_fp": 4
+          },
+          "_Z21kern_matmul_reorderedPKfS0_Pfm": {
+            "total": 77,
+            "neon": 5,
+            "scalar_fp": 1
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.72
+      }
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "fft",
+      "vec": {
+        "available": true,
+        "vectorized_events": 5,
+        "vectorized_sites": 5,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 5,
+        "widths": {
+          "VF4/IC1": 3,
+          "VF4/IC2": 2
+        },
+        "missed_reasons": {
+          "value that could not be identified as reduction is used outside the loop": 2,
+          "could not determine number of loop iterations": 1,
+          "instruction cannot be vectorized": 1,
+          "unspecified": 1
+        }
+      },
+      "asm": {
+        "total_insns": 947,
+        "neon_insns": 220,
+        "scalar_fp_insns": 58,
+        "kernel_total_insns": 163,
+        "kernel_neon_insns": 22,
+        "kernel_scalar_fp_insns": 8,
+        "top_neon_ops": [
+          [
+            "ld1",
+            6
+          ],
+          [
+            "ldr.q",
+            4
+          ],
+          [
+            "str.q",
+            4
+          ],
+          [
+            "fmul",
+            2
+          ],
+          [
+            "fsub",
+            2
+          ]
+        ],
+        "kernel_functions": {
+          "_Z15kern_fft_radix2PfS_PKfS1_PKjm": {
+            "total": 163,
+            "neon": 22,
+            "scalar_fp": 8
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.28
+      }
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "vec": {
+        "available": true,
+        "vectorized_events": 17,
+        "vectorized_sites": 9,
+        "slp_events": 0,
+        "interleaved_events": 0,
+        "missed_sites": 2,
+        "widths": {
+          "VF2/IC2": 1,
+          "VF4/IC2": 16
+        },
+        "missed_reasons": {
+          "value that could not be identified as reduction is used outside the loop": 1,
+          "instruction cannot be vectorized": 1
+        }
+      },
+      "asm": {
+        "total_insns": 1641,
+        "neon_insns": 499,
+        "scalar_fp_insns": 110,
+        "kernel_total_insns": 964,
+        "kernel_neon_insns": 449,
+        "kernel_scalar_fp_insns": 33,
+        "top_neon_ops": [
+          [
+            "movi",
+            81
+          ],
+          [
+            "mov",
+            68
+          ],
+          [
+            "ldp.q",
+            47
+          ],
+          [
+            "faddp",
+            42
+          ],
+          [
+            "fadd",
+            37
+          ]
+        ],
+        "kernel_functions": {
+          "_Z14kern_dot_basicIfET_PKS0_S2_m": {
+            "total": 37,
+            "neon": 9,
+            "scalar_fp": 1
+          },
+          "_Z14kern_dot_basicIiET_PKS0_S2_m": {
+            "total": 39,
+            "neon": 8,
+            "scalar_fp": 1
+          },
+          "_Z16kern_dot_unroll4IfET_PKS0_S2_m": {
+            "total": 120,
+            "neon": 53,
+            "scalar_fp": 6
+          },
+          "_Z16kern_dot_unroll4IiET_PKS0_S2_m": {
+            "total": 113,
+            "neon": 48,
+            "scalar_fp": 2
+          },
+          "_Z17kern_dot_restrictIfET_PKS0_S2_m": {
+            "total": 37,
+            "neon": 9,
+            "scalar_fp": 1
+          },
+          "_Z17kern_dot_restrictIiET_PKS0_S2_m": {
+            "total": 39,
+            "neon": 8,
+            "scalar_fp": 1
+          },
+          "_Z25kern_dot_restrict_unroll4IfET_PKS0_S2_m": {
+            "total": 120,
+            "neon": 53,
+            "scalar_fp": 6
+          },
+          "_Z25kern_dot_restrict_unroll4IiET_PKS0_S2_m": {
+            "total": 113,
+            "neon": 48,
+            "scalar_fp": 2
+          },
+          "_Z25kern_dot_restrict_unroll8IfET_PKS0_S2_m": {
+            "total": 271,
+            "neon": 190,
+            "scalar_fp": 10
+          },
+          "_Z25kern_dot_restrict_unroll8IiET_PKS0_S2_m": {
+            "total": 75,
+            "neon": 23,
+            "scalar_fp": 3
+          }
+        }
+      },
+      "run": {
+        "state": "ok",
+        "wall_s": 0.55
+      }
+    }
+  ],
+  "runtime": [
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "matrix_mul",
+      "variant": "naive_ijk",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 257.721,
+      "err": 1.337e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "matrix_mul",
+      "variant": "reordered_ikj",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 285.3961,
+      "err": 1.337e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "fft",
+      "variant": "radix2_iterative",
+      "n": 65536,
+      "reps": 10,
+      "time_ms": 35.2731,
+      "err": 1.6e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "f32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 12.5717,
+      "err": 1.892e-08,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "f32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 15.2395,
+      "err": 1.892e-08,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "f32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 10.7185,
+      "err": 5.193e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 10.9437,
+      "err": 5.193e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 9.8292,
+      "err": 1.559e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "i32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 6.6534,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "i32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 6.6938,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "i32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 8.1753,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 4.5924,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 4.5189,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "matrix_mul",
+      "variant": "naive_ijk",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 136.7042,
+      "err": 1.363e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "matrix_mul",
+      "variant": "reordered_ikj",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 150.0375,
+      "err": 1.363e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "fft",
+      "variant": "radix2_iterative",
+      "n": 65536,
+      "reps": 10,
+      "time_ms": 23.5598,
+      "err": 1.589e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "f32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 8.0805,
+      "err": 2.015e-08,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "f32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 8.1083,
+      "err": 2.015e-08,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "f32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.9335,
+      "err": 5.025e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.7624,
+      "err": 5.025e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 6.0479,
+      "err": 2.185e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "i32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 2.9065,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "i32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 2.8793,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "i32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 2.7846,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 2.8037,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.5663,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "matrix_mul",
+      "variant": "naive_ijk",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 109.4199,
+      "err": 9.531e-07,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "matrix_mul",
+      "variant": "reordered_ikj",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 100.259,
+      "err": 1.363e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "fft",
+      "variant": "radix2_iterative",
+      "n": 65536,
+      "reps": 10,
+      "time_ms": 21.4926,
+      "err": 1.589e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "f32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.7144,
+      "err": 5.04e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "f32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.9392,
+      "err": 5.04e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "f32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.7523,
+      "err": 5.025e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.752,
+      "err": 5.025e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.7451,
+      "err": 2.185e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "i32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 2.9513,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "i32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 2.9203,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "i32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 2.798,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 2.7994,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "gcc",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.5708,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "matrix_mul",
+      "variant": "naive_ijk",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 268.4416,
+      "err": 1.337e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "matrix_mul",
+      "variant": "reordered_ikj",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 278.241,
+      "err": 1.337e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "fft",
+      "variant": "radix2_iterative",
+      "n": 65536,
+      "reps": 10,
+      "time_ms": 34.7445,
+      "err": 1.6e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "f32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 13.7935,
+      "err": 1.892e-08,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "f32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 13.0661,
+      "err": 1.892e-08,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "f32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 11.3863,
+      "err": 5.193e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 11.2295,
+      "err": 5.193e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 10.5182,
+      "err": 1.559e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "i32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 7.5924,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "i32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 7.5485,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "i32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 4.5657,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 4.5285,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O0",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 4.2668,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "matrix_mul",
+      "variant": "naive_ijk",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 126.1956,
+      "err": 1.082e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "matrix_mul",
+      "variant": "reordered_ikj",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 101.6249,
+      "err": 1.363e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "fft",
+      "variant": "radix2_iterative",
+      "n": 65536,
+      "reps": 10,
+      "time_ms": 17.2449,
+      "err": 1.57e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "f32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.7911,
+      "err": 2.185e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "f32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.769,
+      "err": 2.185e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "f32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 6.1385,
+      "err": 3.952e-10,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 6.2579,
+      "err": 3.952e-10,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 6.7126,
+      "err": 6.135e-10,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "i32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.6215,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "i32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.5993,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "i32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.2218,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.2188,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O2",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.6756,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "matrix_mul",
+      "variant": "naive_ijk",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 127.8186,
+      "err": 1.082e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "matrix_mul",
+      "variant": "reordered_ikj",
+      "n": 256,
+      "reps": 3,
+      "time_ms": 102.1867,
+      "err": 1.363e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "fft",
+      "variant": "radix2_iterative",
+      "n": 65536,
+      "reps": 10,
+      "time_ms": 18.4286,
+      "err": 1.435e-06,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "f32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.9634,
+      "err": 2.185e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "f32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.8053,
+      "err": 2.185e-09,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "f32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 5.9346,
+      "err": 3.952e-10,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 6.3125,
+      "err": 3.952e-10,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "f32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 6.7578,
+      "err": 6.135e-10,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "i32_basic",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.6045,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "i32_restrict",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.6289,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "i32_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.2104,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll4",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.2148,
+      "err": 0.0,
+      "status": "OK"
+    },
+    {
+      "compiler": "clang",
+      "opt": "O3",
+      "kernel": "dot_product",
+      "variant": "i32_restrict_unroll8",
+      "n": 1048576,
+      "reps": 10,
+      "time_ms": 1.6324,
+      "err": 0.0,
+      "status": "OK"
+    }
+  ]
+}
