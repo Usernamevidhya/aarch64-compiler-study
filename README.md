@@ -1,4 +1,4 @@
-# AArch64 Compiler Optimization Study
+o# AArch64 Compiler Optimization Study
 
 GCC vs Clang cross-compiling three kernels for AArch64, executed under `qemu-aarch64`,
 with vectorization-report parsing and NEON instruction counting.
@@ -66,3 +66,18 @@ breaks glibc's `libm.a` linker script on Debian/Ubuntu. Compilation and vectoriz
 Creates/updates `.gitignore` (binaries, `*.s`, `build*/` are never committed), commits, and pushes to
 `https://github.com/Usernamevidhya/aarch64-compiler-study.git`. The empty GitHub repo must already exist and
 git must have credentials for it. Override the target with `REPO_URL=...`.
+## Findings (QEMU, GCC 13.3 vs Clang 18.1, n=256, x86_64 host)
+
+- **Loop order helps matmul, but not uniformly.** `reordered_ikj` beat `naive_ijk` at -O3 for
+  GCC (100.3 vs 109.4 ms) and at Clang -O2 (101.6 vs 126.2 ms), but not at GCC -O2
+  (150.0 vs 136.7 ms), where GCC vectorized nothing in matmul.
+- **Float sums resist vectorization.** Clang reports "value that could not be identified as a
+  reduction is used outside the loop" for the strict floating-point loops. In the fast-math run,
+  GCC -O2 vectorizes almost nothing in fft and matmul, while -O3 does.
+- **Fast-math changes the code, not the QEMU timings.** With -ffast-math, GCC -O3 emits
+  vectorized matmul/fft kernels (24 and 35 NEON instructions), but float runtimes stayed at
+  about 5.7 ms because QEMU emulates NEON in software. Real AArch64 hardware is needed to see
+  the speedup.
+- **Clang vectorizes identically at -O2 and -O3** here (449 NEON instructions in dot_product
+  at both levels).
+- **More NEON instructions do not mean faster code**: the counts include `movi`/`mov` setup.
